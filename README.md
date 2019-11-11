@@ -3,5 +3,7 @@
 1. Socket.io
 2. Express
 3. MongoDb
-4. Docker, Docker-swarm
+4. Docker, Docker-Compose
+5. HAProxy
+6. Redis
 

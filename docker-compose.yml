@@ -1,0 +1,45 @@
+
+version: '1.0'
+services:
+  build: ./haproxy
+  links:
+    - server-1
+    - server-2
+    - server-3
+    - server-4
+  ports:
+    - "3000:80"
+
+server-1:
+  build: ./server
+  links:
+    - redis
+  expose:
+    - "3000"
+server-2:
+  build: ./server
+  links:
+    - redis
+  expose:
+    - "3000"
+
+server-3:
+  build: ./server
+  links:
+    - redis
+  expose:
+    - "3000"
+
+server-4:
+  build: ./server
+  links:
+    - redis
+  expose:
+    - "3000"
+
+redis:
+  image: redis:alpine
+  ports:
+    - "6379"
+  networks:
+    - backend
